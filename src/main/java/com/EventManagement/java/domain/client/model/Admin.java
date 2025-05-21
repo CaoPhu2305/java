@@ -1,23 +1,27 @@
 package com.EventManagement.java.domain.client.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "admins")
 public class Admin {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int adminID;
 
-    
     private String department;
 
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "userID")
+    private UserAccount userAccount;
 
 
-    
     public int getAdminID() {
         return adminID;
     }

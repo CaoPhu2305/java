@@ -37,7 +37,7 @@
         <section class="vh-100 position-relative overflow-hidden">
         <!-- Hình nền mờ -->
         <div style="
-            background-image: url('/images/avatar/iu_huit.jpg'); 
+            background-image: url('/images/avatar/iu_huit.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(4px);
