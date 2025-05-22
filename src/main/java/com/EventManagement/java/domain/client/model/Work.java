@@ -2,6 +2,7 @@ package com.EventManagement.java.domain.client.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +20,14 @@ public class Work {
 
     private double price;
 
+    @Column(columnDefinition = "nvarchar(255)")
     private String nameWork;
 
     private Boolean isComplate;
+
+    public Work() {
+        
+    }
 
     @OneToMany(mappedBy = "work")
     private List<EventWorkStudent> eventWorkStudents;

@@ -4,115 +4,135 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Homepage </title>
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homepage</title>
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
 
-        <!-- Libraries Stylesheet -->
-        <link href="/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <!-- <link href="/client/css/bootstrap.min.css" rel="stylesheet"> -->
-                 <!-- <link href="/client/css/bootstrap.min.css" rel="stylesheet"> -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-        <!-- Template Stylesheet -->
+    <!-- Custom Style -->
+    <link href="/client/css/style.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="/client/css/style.css" rel="stylesheet">
-    </head>
-   
-        <body>
+    <style>
+        body {
+            background-color: #eaf6ff;
+        }
+        .card {
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 100, 0.1);
+        }
+        .card-title {
+            color: #0056b3;
+            font-weight: bold;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .event-image-wrapper {
+            padding: 16px;
+        }
+        .event-image {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .event-details li i {
+            color: #0077cc;
+            margin-right: 6px;
+        }
+        .btn-primary {
+            background-color: #3399ff;
+            border-color: #3399ff;
+        }
+        .btn-primary:hover {
+            background-color: #007acc;
+            border-color: #007acc;
+        }
+        @media (max-width: 768px) {
+            .event-image {
+                max-height: 250px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
 
-        <!-- Spinner Start -->
+<body>
 
-        <!-- Spinner End -->
+<jsp:include page="../layout/header.jsp" />
 
+<!-- Event Detail Start -->
+<div class="container" style="margin-top: 120px;">
+    <div class="card mx-auto " style="max-width: 80%">
 
-        <jsp:include page="../layout/header.jsp" />
+        <!-- Tên sự kiện -->
+        <h1 class="card-title">${event.name}</h1>
 
-        <!-- Product Detail Start -->
-        <div class="container-fluid py-4 mt-0 bg-light">
-            <div class="container py-4">
-                <div class="row g-5 mt-3 align-items-center">
-                    <!-- Image Section -->
-                    <div class="col-lg-6  ">
-                        <div class="border rounded overflow-hidden shadow-sm bg-white p-3">
-                            <img src="/client/img/fruite-item-5.jpg" class="img-fluid w-100 rounded-3" alt="Broccoli Image">
-                        </div>
-                    </div>
+        <div class="row g-0">
+            <!-- Hình ảnh -->
+            <div class="col-md-6 event-image-wrapper">
+                <img src="/client/img/${event.imageEvent}" class="img-fluid event-image" alt="Event Image">
+            </div>
 
-                    <!-- Product Info Section -->
-                    <div class="col-lg-6">
-                        <div class="card shadow-sm border-0 rounded-4">
-                            <div class="card-body">
-                                <a href="#" class="btn btn-primary" >
-                                    Đăng Ký 
-                                </a>
+            <!-- Thông tin sự kiện -->
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="text-primary mb-3">Thông tin sự kiện</h5>
+                    <ul class="list-unstyled event-details">
+                        <li><i class="bi bi-geo-alt-fill"></i><strong>Địa điểm:</strong> ${event.location}</li>
+                        <li><i class="bi bi-calendar-event"></i><strong>Ngày tổ chức:</strong> ${event.startDay}</li>
+                        <li><i class="bi bi-clock-fill"></i><strong>Giờ bắt đầu:</strong> ${event.startTime}</li>
+                        <li><i class="bi bi-clock-history"></i><strong>Giờ kết thúc:</strong> ${event.endTime}</li>
+                        <li><i class="bi bi-people-fill"></i><strong>Số lượng tham gia:</strong> ${event.maxAudience}</li>
+                        <li><i class="bi bi-star-fill"></i><strong>Điểm rèn luyện:</strong> ${event.trainingPoints}</li>
+                        <li><i class="bi bi-award-fill"></i><strong>Điểm công tác xã hội:</strong> ${event.socialWordPoint}</li>
+                    </ul>
 
-                                <ul class="list-group list-group-flush fs-5">
-                                    <li class="list-group-item"><strong class="text-primary">Điểm rèn luyện:</strong> 10 điểm</li>
-                                    <li class="list-group-item"><strong class="text-primary">Địa điểm tổ chức:</strong> Hội trường A, Trường Đại học ABC</li>
-                                    <li class="list-group-item"><strong class="text-primary">Mô tả ngắn:</strong> Buổi chia sẻ kiến thức về dinh dưỡng từ rau củ</li>
-                                    <li class="list-group-item"><strong class="text-primary">Số lượng tham gia:</strong> 50 sinh viên</li>
-                                    <li class="list-group-item"><strong class="text-primary">Ngày kết thúc:</strong> 30/05/2025</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Description Section -->
-                <div class="mt-5">
-                    <div class="card shadow-lg border-0 rounded-4">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3 text-primary">Chi Tiết</h4>
-                            <p class="card-text text-justify fs-5">
-                                Rau củ là món quà quý giá mà thiên nhiên ban tặng cho con người. Mỗi loại rau củ đều mang một màu sắc và hương vị 
-                                riêng biệt, tạo nên sự phong phú cho bữa ăn hằng ngày. Cà rốt với màu cam rực rỡ, vị ngọt dịu và giòn tan; cải xanh 
-                                thì tươi mát, hơi đắng nhẹ nhưng lại rất bổ dưỡng. Khoai tây tròn trĩnh, vỏ ngoài sần sùi nhưng bên trong bở mềm, thơm.
-                            </p>
-                        </div>
-                    </div>
+                    <!-- Nút đăng ký -->
+                    <a href="/register/${event.eventID}" class="btn btn-primary mt-3 w-100">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- Product Detail End -->
 
-        <!-- Footer Start -->
+        <!-- Mô tả chi tiết -->
+        <div class="card-body border-top mt-4">
+            <h5 class="text-primary mb-3">Chi tiết sự kiện</h5>
+            <p class="card-text text-justify" style="text-align: justify;">
+                ${event.description}
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Event Detail End -->
 
-        <jsp:include page="../layout/footer.jsp"/>
+<jsp:include page="../layout/footer.jsp"/>
 
-        <!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
+    <i class="fa fa-arrow-up"></i>
+</a>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+<!-- JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="/client/lib/easing/easing.min.js"></script>
+<script src="/client/lib/waypoints/waypoints.min.js"></script>
+<script src="/client/lib/lightbox/js/lightbox.min.js"></script>
+<script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/client/js/main.js"></script>
 
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/client/lib/easing/easing.min.js"></script>
-    <script src="/client/lib/waypoints/waypoints.min.js"></script>
-    <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
-    <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="/client/js/main.js"></script>
-    </body>
-
+</body>
 </html>

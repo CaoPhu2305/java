@@ -1,6 +1,7 @@
 package com.EventManagement.java.domain.client.model;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -15,6 +16,7 @@ public class UserAccount {
 
     private String password;
 
+    @Column(columnDefinition = "nvarchar(255)")
     private String name;
     
     private String phone;
@@ -30,7 +32,9 @@ public class UserAccount {
     @OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL)
     private Admin admin;
 
-    
+    public UserAccount() {
+        
+    }
 
     public Student getStudent() {
         return student;

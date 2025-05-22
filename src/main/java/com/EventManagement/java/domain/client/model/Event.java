@@ -3,6 +3,7 @@ package com.EventManagement.java.domain.client.model;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -17,8 +18,8 @@ public class Event {
     @Id
     private int eventID;
 
-    //lecturerID 
-
+    // sửa varchar -> nvarchar 
+    @Column(columnDefinition = "nvarchar(255)")
     private String name;
 
     private Date startDay;
@@ -27,6 +28,13 @@ public class Event {
     
     private Date endTime;
 
+    public Event(){
+
+    }
+
+
+
+    @Column(columnDefinition = "nvarchar(255)")
     private String location;
 
     private int maxCTV;
@@ -37,14 +45,17 @@ public class Event {
 
     private Boolean isApproved;
 
+    // không cần nvarchar
     private String imageEvent;
 
     @ManyToOne
     @JoinColumn(name = "lecturer_Event")
     private Lecturer lecturer;
 
-    //bit text
-    private String Description;
+    //sửa lại nvarchar và thêm max tối đa 2G
+
+    @Column(columnDefinition = "nvarchar(max)")
+    private String description;
 
     private int  socialWordPoint;
 
@@ -139,11 +150,11 @@ public class Event {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public int getSocialWordPoint() {
@@ -162,12 +173,30 @@ public class Event {
         this.trainingPoints = trainingPoints;
     }
 
+    
+
+    public int getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
     @Override
     public String toString() {
         return "Event [eventID=" + eventID + ", name=" + name + ", startDay=" + startDay + ", startTime=" + startTime
                 + ", endTime=" + endTime + ", location=" + location + ", maxCTV=" + maxCTV + ", maxAudience="
                 + maxAudience + ", cost=" + cost + ", isApproved=" + isApproved + ", imageEvent=" + imageEvent
-                + ", Description=" + Description + ", socialWordPoint=" + socialWordPoint + ", trainingPoints="
+                + ", Description=" + description + ", socialWordPoint=" + socialWordPoint + ", trainingPoints="
                 + trainingPoints + "]";
     }
 

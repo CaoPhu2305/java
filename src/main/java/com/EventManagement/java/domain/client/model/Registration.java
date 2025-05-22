@@ -20,6 +20,10 @@ public class Registration {
 
     private String tradingID;
 
+    public Registration() {
+        
+    }
+
     @ManyToOne
     @MapsId("studentID")
     @JoinColumn(name = "studentID_RegistrationID")

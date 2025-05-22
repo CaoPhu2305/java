@@ -2,6 +2,7 @@ package com.EventManagement.java.domain.client.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -15,8 +16,11 @@ import jakarta.persistence.Table;
 public class Lecturer {
     
     @Id
+    @Column(name = "lecturerID")
     private int lecturerID;
 
+    // đã sữa domain varchar --> nvarchar
+    @Column(columnDefinition = "nvarchar(255)")
     private String Falculty;
 
     @OneToMany(mappedBy = "lecturer")
@@ -26,6 +30,10 @@ public class Lecturer {
     @MapsId
     @JoinColumn(name = "userID")
     private UserAccount userAccount;
+
+    public Lecturer(){
+
+    }
 
     public int getLecturerID() {
         return lecturerID;

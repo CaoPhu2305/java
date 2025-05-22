@@ -27,4 +27,8 @@ public class EventWorkStudent {
     @JoinColumn(name = "workID_EWS")
     private Work work;
 
+    public EventWorkStudent(){
+
+    }
+
 }

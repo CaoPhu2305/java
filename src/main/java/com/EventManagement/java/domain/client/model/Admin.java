@@ -1,5 +1,6 @@
 package com.EventManagement.java.domain.client.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -12,8 +13,10 @@ import jakarta.persistence.Table;
 public class Admin {
     
     @Id
+    @Column(name = "adminID")
     private int adminID;
 
+    // có thể sửa
     private String department;
 
     @OneToOne
@@ -21,6 +24,9 @@ public class Admin {
     @JoinColumn(name = "userID")
     private UserAccount userAccount;
 
+    public Admin() {
+        
+    }
 
     public int getAdminID() {
         return adminID;

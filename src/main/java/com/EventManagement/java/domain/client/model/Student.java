@@ -2,6 +2,7 @@ package com.EventManagement.java.domain.client.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -15,6 +16,7 @@ import jakarta.persistence.Table;
 public class Student {
 
     @Id
+    @Column(name = "studentID")
     private int studentID;
     
     private String classID;
@@ -22,6 +24,11 @@ public class Student {
     private int cTXH;
 
     private int renLuyen;
+
+    public Student(){
+        
+    }
+
 
     @OneToOne
     @MapsId
