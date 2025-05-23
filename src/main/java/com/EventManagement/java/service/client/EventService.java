@@ -2,6 +2,7 @@ package com.EventManagement.java.service.client;
 
 import java.util.List;
 
+import org.eclipse.tags.shaded.org.apache.regexp.recompile;
 import org.springframework.stereotype.Service;
 
 import com.EventManagement.java.domain.client.model.Event;
@@ -11,7 +12,7 @@ import com.EventManagement.java.repository.client.EventRepository;
 @Service
 public class EventService {
 
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
     
     
@@ -28,4 +29,13 @@ public class EventService {
     public Event getEventByID(int eventID) {
         return eventRepository.findByEventID(eventID);
     }
+
+    public List<Event> getAllEventTrainingPoints(int point) {
+        return eventRepository.findByTrainingPointsGreaterThan(point);
+    }
+
+    public List<Event> getALLEventSocialWordPoints(int point) {
+        return eventRepository.findBySocialWordPointGreaterThan(point);
+    }
+
 }

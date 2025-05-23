@@ -13,6 +13,7 @@ import com.EventManagement.java.service.client.EventService;
 
 
 
+
 @Controller
 public class EventController {
 
@@ -27,7 +28,11 @@ public class EventController {
     public String getHomePage(Model model) {
 
         List<Event> getAllEvents = eventService.getAllEvents();
+        List<Event> getAllEventTrainingPoints = eventService.getAllEventTrainingPoints(0);
+        List<Event> getALLEventSocialWordPoints = eventService.getALLEventSocialWordPoints(0);
         model.addAttribute("allEvents", getAllEvents);
+        model.addAttribute("allEventTrainingPoints", getAllEventTrainingPoints);
+        model.addAttribute("allEventSocialWordPoints", getALLEventSocialWordPoints);
         System.out.println(getAllEvents);
         return "client/homepage/show";
     }
@@ -37,8 +42,13 @@ public class EventController {
         return "client/event/EventDetail";
     }
     
-    @GetMapping("client/event/cart")
-    public String getEventCart() {
+    @GetMapping("client/event/cart/{id}")
+    public String getEventCart(Model model , @PathVariable int id) {
+
+        Event getEventByID = eventService.getEventByID(id);
+        
+        model.addAttribute("event", getEventByID);
+
         return "client/event/eventCart";
     }
 
@@ -51,5 +61,6 @@ public class EventController {
         return "client/event/EventDetail";
     }
     
+
 
 }

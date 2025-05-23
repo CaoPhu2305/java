@@ -71,68 +71,68 @@
 
 <body>
 
-<jsp:include page="../layout/header.jsp" />
+        <jsp:include page="../layout/header.jsp" />
 
-<!-- Event Detail Start -->
-<div class="container" style="margin-top: 120px;">
-    <div class="card mx-auto " style="max-width: 80%">
+        <!-- Event Detail Start -->
+        <div class="container mb-3" style="margin-top: 120px;">
+            <div class="card mx-auto " style="max-width: 80%">
 
-        <!-- Tên sự kiện -->
-        <h1 class="card-title">${event.name}</h1>
+                <!-- Tên sự kiện -->
+                <h1 class="card-title">${event.name}</h1>
 
-        <div class="row g-0">
-            <!-- Hình ảnh -->
-            <div class="col-md-6 event-image-wrapper">
-                <img src="/client/img/${event.imageEvent}" class="img-fluid event-image" alt="Event Image">
-            </div>
+                <div class="row g-0">
+                    <!-- Hình ảnh -->
+                    <div class="col-md-6 event-image-wrapper">
+                        <img src="/client/img/${event.imageEvent}" class="img-fluid event-image" alt="Event Image">
+                    </div>
 
-            <!-- Thông tin sự kiện -->
-            <div class="col-md-6">
-                <div class="card-body">
-                    <h5 class="text-primary mb-3">Thông tin sự kiện</h5>
-                    <ul class="list-unstyled event-details">
-                        <li><i class="bi bi-geo-alt-fill"></i><strong>Địa điểm:</strong> ${event.location}</li>
-                        <li><i class="bi bi-calendar-event"></i><strong>Ngày tổ chức:</strong> ${event.startDay}</li>
-                        <li><i class="bi bi-clock-fill"></i><strong>Giờ bắt đầu:</strong> ${event.startTime}</li>
-                        <li><i class="bi bi-clock-history"></i><strong>Giờ kết thúc:</strong> ${event.endTime}</li>
-                        <li><i class="bi bi-people-fill"></i><strong>Số lượng tham gia:</strong> ${event.maxAudience}</li>
-                        <li><i class="bi bi-star-fill"></i><strong>Điểm rèn luyện:</strong> ${event.trainingPoints}</li>
-                        <li><i class="bi bi-award-fill"></i><strong>Điểm công tác xã hội:</strong> ${event.socialWordPoint}</li>
-                    </ul>
+                    <!-- Thông tin sự kiện -->
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="text-primary mb-3">Thông tin sự kiện</h5>
+                            <ul class="list-unstyled event-details">
+                                <li><i class="bi bi-geo-alt-fill"></i><strong>Địa điểm:</strong> ${event.location}</li>
+                                <li><i class="bi bi-calendar-event"></i><strong>Ngày tổ chức:</strong> ${event.startDay}</li>
+                                <li><i class="bi bi-clock-fill"></i><strong>Giờ bắt đầu:</strong> ${event.startTime}</li>
+                                <li><i class="bi bi-clock-history"></i><strong>Giờ kết thúc:</strong> ${event.endTime}</li>
+                                <li><i class="bi bi-people-fill"></i><strong>Số lượng tham gia:</strong> ${event.maxAudience}</li>
+                                <li><i class="bi bi-star-fill"></i><strong>Điểm rèn luyện:</strong> ${event.trainingPoints}</li>
+                                <li><i class="bi bi-award-fill"></i><strong>Điểm công tác xã hội:</strong> ${event.socialWordPoint}</li>
+                            </ul>
 
-                    <!-- Nút đăng ký -->
-                    <a href="/register/${event.eventID}" class="btn btn-primary mt-3 w-100">
-                        <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
-                    </a>
+                            <!-- Nút đăng ký -->
+                            <a href="/client/event/cart/${event.eventID}" class="btn btn-primary mt-3 w-100">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mô tả chi tiết -->
+                <div class="card-body border-top mt-4">
+                    <h5 class="text-primary mb-3">Chi tiết sự kiện</h5>
+                    <p class="card-text text-justify" style="text-align: justify;">
+                        ${event.description}
+                    </p>
                 </div>
             </div>
         </div>
+        <!-- Event Detail End -->
 
-        <!-- Mô tả chi tiết -->
-        <div class="card-body border-top mt-4">
-            <h5 class="text-primary mb-3">Chi tiết sự kiện</h5>
-            <p class="card-text text-justify" style="text-align: justify;">
-                ${event.description}
-            </p>
-        </div>
-    </div>
-</div>
-<!-- Event Detail End -->
+        <jsp:include page="../layout/footer.jsp"/>
 
-<jsp:include page="../layout/footer.jsp"/>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </a>
 
-<!-- Back to Top -->
-<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
-    <i class="fa fa-arrow-up"></i>
-</a>
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="/client/lib/easing/easing.min.js"></script>
+        <script src="/client/lib/waypoints/waypoints.min.js"></script>
+        <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
+        <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="/client/js/main.js"></script>
 
-<!-- JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="/client/lib/easing/easing.min.js"></script>
-<script src="/client/lib/waypoints/waypoints.min.js"></script>
-<script src="/client/lib/lightbox/js/lightbox.min.js"></script>
-<script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="/client/js/main.js"></script>
-
-</body>
+    </body>
 </html>

@@ -10,4 +10,9 @@ public interface EventRepository extends JpaRepository<Event , Integer> {
     List<Event> findAll();
 
     Event  findByEventID(int eventID);
+
+    List<Event> findByTrainingPointsGreaterThan(int minPoint);
+
+    List<Event> findBySocialWordPointGreaterThan(int minPoint);
+
 }
