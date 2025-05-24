@@ -1,6 +1,6 @@
 package com.EventManagement.java.service.client;
 
-import org.eclipse.tags.shaded.org.apache.regexp.recompile;
+
 import org.springframework.stereotype.Service;
 
 import com.EventManagement.java.domain.client.model.UserAccount;

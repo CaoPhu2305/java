@@ -48,10 +48,10 @@
                             <th scope="col">Địa điểm</th>
                             <th scope="col">Bắt đầu</th>
                             <th scope="col">Kết thúc</th>
-                            <th scope="col">Hủy</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach var="event" items="${events}">
                         <tr class="text-center">
                             <td>
                                 <img src="/client/img/${event.imageEvent}" class="img-thumbnail rounded-circle" style="width: 80px; height: 80px;" alt="${event.eventID}">
@@ -68,12 +68,8 @@
                             <td>
                                 <p class="mb-0">${event.endTime}</p>
                             </td>
-                            <td>
-                                <button class="btn btn-outline-danger rounded-circle">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </td>
                         </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

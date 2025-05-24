@@ -37,22 +37,7 @@ public class EventController {
         return "client/homepage/show";
     }
 
-    @GetMapping("/client/event/detail")
-    public String getEventDetail() {
-        return "client/event/EventDetail";
-    }
-    
-    @GetMapping("client/event/cart/{id}")
-    public String getEventCart(Model model , @PathVariable int id) {
-
-        Event getEventByID = eventService.getEventByID(id);
-        
-        model.addAttribute("event", getEventByID);
-
-        return "client/event/eventCart";
-    }
-
-    @GetMapping("/client/event/detail/{id}")
+    @GetMapping("/student/event/detail/{id}")
     public String postMethodName(Model model, @PathVariable Integer id) {
        
         Event getEventByID = eventService.getEventByID(id);

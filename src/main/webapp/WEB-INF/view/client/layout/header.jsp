@@ -11,7 +11,6 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
 
@@ -25,12 +24,12 @@
                         </div>
 
                         <div class="d-flex m-3 me-0">
-                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <a href="#" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
                                 <i class="bi bi-card-text text-primary"></i>
-                            </button>
+                            </a>
 
 
-                            <a href="#" class="my-auto">
+                            <a href="/student/event/cart/${sessionScope.id}" class="my-auto">
                                 <i class="fas fa-user fa-2x"></i>
                             </a>
                         </div>

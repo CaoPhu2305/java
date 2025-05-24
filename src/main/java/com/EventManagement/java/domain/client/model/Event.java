@@ -28,8 +28,20 @@ public class Event {
     
     private Date endTime;
 
+    private String checkinID;
+
     public Event(){
 
+    }
+
+    
+
+    public String getCheckinID() {
+        return checkinID;
+    }
+
+    public void setCheckinID(String checkinID) {
+        this.checkinID = checkinID;
     }
 
 

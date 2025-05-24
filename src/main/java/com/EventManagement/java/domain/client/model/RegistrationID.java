@@ -9,7 +9,12 @@ public class RegistrationID implements Serializable {
     
     private int studentID;
     private int eventID;
+
     
+    public RegistrationID() {
+        
+    }
+
     public int getStudentID() {
         return studentID;
     }

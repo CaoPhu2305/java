@@ -17,9 +17,8 @@
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12 col-lg-7">
-                        <h4 class="mb-3">100% Organic Foods</h4>
-                        <h1 class="mb-4">Fresh Organic Veggies & Fruits</h1>
-                        <a href="#" class="btn btn-warning btn-lg px-4">Shop Now</a>
+                        <h4 class="mb-3">Nhân văn - Đoàn kết - Đổi mới - Tiên phong</h4>
+                        <h1 class="mb-4">Trường Đại Học Công Thương Thành Phố Hồ Chí Minh</h1>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("ko thay");
         }
 
-        return new User(String.valueOf(userAccount.getUserID()), userAccount.getPassword(), Collections.singletonList(new SimpleGrantedAuthority(String.valueOf(userAccount.getRole()))));
+        return new User(String.valueOf(userAccount.getUserID()), userAccount.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + String.valueOf(userAccount.getRole()))));
         //String.valueOf(userAccount.getUserID())
     }
     

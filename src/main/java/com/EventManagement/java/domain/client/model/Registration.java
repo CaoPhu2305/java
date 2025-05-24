@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Registration {
     
     @EmbeddedId
-    private RegistrationID RegistrationID;
+    private RegistrationID registrationID;
 
     private Boolean isCTV;
 
@@ -33,6 +33,32 @@ public class Registration {
     @MapsId("eventID")
     @JoinColumn(name = "eventID_RegistrationID")
     private Event event;
+
+    
+
+    public RegistrationID getRegistrationID() {
+        return registrationID;
+    }
+
+    public void setRegistrationID(RegistrationID registrationID) {
+        this.registrationID = registrationID;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 
     public Boolean getIsCTV() {
         return isCTV;
@@ -58,7 +84,14 @@ public class Registration {
         this.tradingID = tradingID;
     }
 
-
-
+    public Registration(RegistrationID registrationID, Boolean isCTV, Boolean isCheckedIn, String tradingID,
+            Student student, Event event) {
+        this.registrationID = registrationID;
+        this.isCTV = isCTV;
+        this.isCheckedIn = isCheckedIn;
+        this.tradingID = tradingID;
+        this.student = student;
+        this.event = event;
+    }
 
 }

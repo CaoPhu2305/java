@@ -109,9 +109,9 @@
                                                             <fmt:formatDate value="${event.startDay}" pattern="dd/MM/yyyy" />
                                                         </p>
                                                     </div>
-                                                    <div class="text-center mt-auto">
-                                                        <a href="/client/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
-                                                    </div>
+                                                      <div class="text-center mt-auto">
+                                                        <a href="/student/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
+                                                      </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@
                                                         </p>
                                                     </div>
                                                     <div class="text-center mt-auto">
-                                                        <a href="/client/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
+                                                        <a href="/student/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                         </p>
                                                     </div>
                                                     <div class="text-center mt-auto">
-                                                        <a href="/client/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
+                                                        <a href="/student/event/detail/${event.eventID}" class="btn btn-outline-primary rounded-pill w-100">Đăng ký / Chi tiết</a>
                                                     </div>
                                                 </div>
                                             </div>

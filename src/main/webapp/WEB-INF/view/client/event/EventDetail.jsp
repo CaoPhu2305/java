@@ -22,7 +22,7 @@
 
     <!-- Custom Style -->
     <link href="/client/css/style.css" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             background-color: #eaf6ff;
@@ -101,9 +101,12 @@
                             </ul>
 
                             <!-- Nút đăng ký -->
-                            <a href="/client/event/cart/${event.eventID}" class="btn btn-primary mt-3 w-100">
-                                <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
-                            </a>
+                             <form method="post" action="/student/event/cart/${event.eventID}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                <button class="btn btn-primary mt-3 w-100">
+                                    <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -117,14 +120,19 @@
                 </div>
             </div>
         </div>
+        
+        <c:if test="${not empty message}">
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+                    var myModal = new bootstrap.Modal(document.getElementById('thongBaoModal'));
+                    myModal.show();
+                });
+            </script>
+        </c:if>
+
         <!-- Event Detail End -->
-
+        <jsp:include page="../layout/message.jsp" />
         <jsp:include page="../layout/footer.jsp"/>
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
-            <i class="fa fa-arrow-up"></i>
-        </a>
 
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -133,6 +141,5 @@
         <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
         <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="/client/js/main.js"></script>
-
     </body>
 </html>
