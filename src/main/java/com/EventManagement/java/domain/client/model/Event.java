@@ -3,8 +3,12 @@ package com.EventManagement.java.domain.client.model;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -16,16 +20,21 @@ import jakarta.persistence.Table;
 public class Event {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="eventid")
     private int eventID;
 
     // sửa varchar -> nvarchar 
     @Column(columnDefinition = "nvarchar(255)")
     private String name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDay;
 
+    @DateTimeFormat(pattern = "HH:mm")
     private Date startTime;
-    
+
+    @DateTimeFormat(pattern = "HH:mm")
     private Date endTime;
 
     private String checkinID;

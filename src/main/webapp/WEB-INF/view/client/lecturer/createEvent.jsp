@@ -23,7 +23,7 @@
 
         <form:form method="post"
                 modelAttribute="newEvent"
-                action="${pageContext.request.contextPath}/lecturer/eventRegisteredEventForm"
+                action="/lecturer/createEvent"
                 class="p-4 shadow rounded bg-white border border-dark"
                 enctype="multipart/form-data">
 
@@ -94,11 +94,20 @@
             </div>
 
             <!-- Mã check-in (nếu bạn muốn cho phép nhập tay) -->
-            <div class="mb-3">
-                <label class="form-label text-dark">Mã Check-in (nếu có)</label>
-                <form:input path="checkinID" type="text" cssClass="form-control border-dark"/>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label text-dark">Mã Check-in (nếu có)</label>
+                    <form:input path="checkinID" type="text" cssClass="form-control border-dark"/>
+                </div>
+                <div class="col-md-6 mb-3">
+                <label for="avatarFile" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="avatarFile" accept=".png , .jng, .jpeg, .jpg "
+                    name="phuFile"
+                    />
+                </div>
             </div>
 
+    
             <!-- Nút submit -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary px-4 rounded-pill fw-semibold" style="max-width: 360px;">

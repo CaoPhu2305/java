@@ -41,18 +41,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="event" items="${events}">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Hội thảo Công nghệ 2025</td>
-                                            <td>2025-06-01</td>
-                                            <td>Trung tâm Hội nghị ABC</td>
+                                            <td>${event.eventID}</td>
+                                            <td>${event.name}</td>
+                                            <td>${event.startDay}</td>
+                                            <td>${event.location}</td>
                                             <td><span class="badge bg-success">Đã duyệt</span></td>
                                             <td>
-                                                <a href="/lecturer/work" class="btn btn-sm btn-info me-1">
+                                                <a href="/lecturer/work/${event.eventID}" class="btn btn-sm btn-info me-1">
                                                     <i class="fas fa-eye"></i> Xem
                                                 </a>
                                             </td>
                                         </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                                 <!-- Nút thêm sự kiện -->

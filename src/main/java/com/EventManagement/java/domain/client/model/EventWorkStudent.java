@@ -31,4 +31,38 @@ public class EventWorkStudent {
 
     }
 
+    public EventWorkStudentID getEventWorkStudentID() {
+        return eventWorkStudentID;
+    }
+
+    public void setEventWorkStudentID(EventWorkStudentID eventWorkStudentID) {
+        this.eventWorkStudentID = eventWorkStudentID;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Work getWork() {
+        return work;
+    }
+
+    public void setWork(Work work) {
+        this.work = work;
+    }
+
+    
+
 }

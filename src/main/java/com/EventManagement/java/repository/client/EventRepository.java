@@ -15,4 +15,6 @@ public interface EventRepository extends JpaRepository<Event , Integer> {
 
     List<Event> findBySocialWordPointGreaterThan(int minPoint);
 
+    List<Event> findByLecturer_LecturerID(int id);
+
 }

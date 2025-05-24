@@ -62,6 +62,8 @@ public class EventWorkStudentID implements Serializable {
         this.workID = workID;
     }
 
-    
+    public EventWorkStudentID() {
+        
+    }
 
 }
