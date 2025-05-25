@@ -34,33 +34,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Dữ liệu mẫu -->
-                                <tr>
-                                    <td>2001230000</td>
-                                    <td>Hưng Khang Phú</td>
-                                    <td>14DTTHXX</td>
-                                </tr>
 
                                 <!-- Dữ liệu động từ biến works -->
-                                <!-- <c:forEach var="work" items="${works}">
+                                <c:forEach var="student" items="${students}">
                                     <tr>
-                                        <td>${work.studentId}</td>
-                                        <td>${work.studentName}</td>
-                                        <td>${work.className}</td>
-                                        <td>
-                                            <a href="/work/${work.id}" class="btn btn-sm btn-info me-1">
-                                                <i class="fas fa-eye"></i> Xem
-                                            </a>
-                                            <a href="/work/assign/${work.id}" class="btn btn-sm btn-primary me-1">
-                                                <i class="fas fa-user-plus"></i> CTV
-                                            </a>
-                                            <a href="/work/complete/${work.id}" class="btn btn-sm btn-success"
-                                            onclick="return confirm('Xác nhận đã hoàn thành công việc này?');">
-                                                <i class="fas fa-check-circle"></i> Hoàn thành
-                                            </a>
-                                        </td>
+                                        <td>${student.studentID}</td>
+                                        <td>${student.getUserAccount().getName()}</td>
+                                        <td>${student.classID}</td>
                                     </tr>
-                                </c:forEach> -->
+                                </c:forEach>
 
                                 <!-- <c:if test="${empty works}">
                                     <tr>

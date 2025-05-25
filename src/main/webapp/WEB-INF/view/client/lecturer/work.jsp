@@ -43,12 +43,12 @@
                                     <tr>
                                         <td>${work.nameWork}</td>
                                         <td>${work.price}</td>
-                                        <td>5</td>
+                                        <td>${quantity}</td>
                                         <td style="width: 180px;">
-                                            <a href="/lecturer/view/${work.workID}" class="btn btn-sm btn-info me-1 mb-1">
+                                            <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info me-1 mb-1">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="/lecturer/add/${work.workID}" class="btn btn-sm btn-success me-1 mb-1">
+                                            <a href="/lecturer/add/${id}/${work.workID}" class="btn btn-sm btn-success me-1 mb-1">
                                                 <i class="fas fa-user-plus"></i>
                                             </a>
                                             <a href="/lecturer/complete/${work.workID}" class="btn btn-sm btn-secondary mb-1"

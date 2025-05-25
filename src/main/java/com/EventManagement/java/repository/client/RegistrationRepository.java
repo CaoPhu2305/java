@@ -12,10 +12,14 @@ import com.EventManagement.java.domain.client.model.RegistrationID;
 
 public interface RegistrationRepository extends JpaRepository<Registration, RegistrationID> {
     
-    List<Registration> findByRegistrationID_StudentID(int studentID);
+    // List<Registration> getALLStudentByEventIDAndWorkID(int studentID);
 
     // Registration findByRegistrationID_StudentIDAndRegistrationID_EventID(int studentID, int eventID);
 
     Registration findByRegistrationID(RegistrationID registrationID);
+
+    List<Registration> findByRegistrationID_EventID(int eventID);
+
+    List<Registration> findByRegistrationID_StudentID(int studentID);
 
 }

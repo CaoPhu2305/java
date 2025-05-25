@@ -51,4 +51,6 @@ public class EventService {
         return eventRepository.findByLecturer_LecturerID(lecturerID);
     }
 
+
+
 }

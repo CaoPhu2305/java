@@ -29,6 +29,21 @@ public class Student {
         
     }
 
+    
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public List<Registration> getRegistrations() {
+        return registrations;
+    }
+
+    public List<EventWorkStudent> getEventWorkStudents() {
+        return eventWorkStudents;
+    }
+
+
 
     @OneToOne
     @MapsId

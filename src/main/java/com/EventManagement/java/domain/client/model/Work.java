@@ -29,6 +29,7 @@ public class Work {
         
     }
 
+
     @OneToMany(mappedBy = "work")
     private List<EventWorkStudent> eventWorkStudents;
 
@@ -62,6 +63,51 @@ public class Work {
 
     public void setIsComplate(Boolean isComplate) {
         this.isComplate = isComplate;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + workID;
+        long temp;
+        temp = Double.doubleToLongBits(price);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((nameWork == null) ? 0 : nameWork.hashCode());
+        result = prime * result + ((isComplate == null) ? 0 : isComplate.hashCode());
+        result = prime * result + ((eventWorkStudents == null) ? 0 : eventWorkStudents.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Work other = (Work) obj;
+        if (workID != other.workID)
+            return false;
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+            return false;
+        if (nameWork == null) {
+            if (other.nameWork != null)
+                return false;
+        } else if (!nameWork.equals(other.nameWork))
+            return false;
+        if (isComplate == null) {
+            if (other.isComplate != null)
+                return false;
+        } else if (!isComplate.equals(other.isComplate))
+            return false;
+        if (eventWorkStudents == null) {
+            if (other.eventWorkStudents != null)
+                return false;
+        } else if (!eventWorkStudents.equals(other.eventWorkStudents))
+            return false;
+        return true;
     }
 
     

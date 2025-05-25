@@ -35,41 +35,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Dữ liệu mẫu -->
-                                <tr>
-                                    <td>200123111</td>
-                                    <td>Khang</td>
-                                    <td>14DTTHXX</td>
-                                    <td>
-                                        <a href="#" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-user-plus"></i> Thêm
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <!-- Dữ liệu động từ biến works -->
-                                <!-- 
-                                <c:forEach var="work" items="${works}">
+                                <c:forEach var="student" items="${students}">
                                     <tr>
-                                        <td>${work.studentId}</td>
-                                        <td>${work.studentName}</td>
-                                        <td>${work.className}</td>
+                                        <td>${student.studentID}</td>
+                                        <td>${student.getUserAccount().getName()}</td>
+                                        <td>${student.classID}</td>
                                         <td>
-                                            <a href="/work/assign/${work.id}" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-user-plus"></i> Thêm
-                                            </a>
+                                            <form action="/lecturer/add/${idSK}/${idCV}/${student.studentID}" method="post">
+                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-user-plus"></i> Thêm
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 </c:forEach>
 
-                                <c:if test="${empty works}">
+                                <!-- <c:if test="${empty works}">
                                     <tr>
                                         <td colspan="4" class="text-center text-muted">
                                             Không có cộng tác viên nào đang làm công việc này.
                                         </td>
                                     </tr>
-                                </c:if>
-                                -->
+                                </c:if> -->
+                    
                             </tbody>
                         </table>
                     </div>

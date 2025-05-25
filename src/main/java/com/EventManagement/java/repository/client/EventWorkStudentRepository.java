@@ -11,4 +11,12 @@ public interface EventWorkStudentRepository extends JpaRepository<EventWorkStude
     
     List<EventWorkStudent> findByEventWorkStudentID_EventID(int eventID);
 
+    List<EventWorkStudent> findByEventWorkStudentID_EventIDAndEventWorkStudentID_WorkID(int eventID, int workID);
+
+    boolean existsByEventWorkStudentID_StudentID(int studentID);
+
+    boolean existsByEventWorkStudentID(EventWorkStudentID id);
+
+    int countByEventWorkStudentID_EventID(int eventID);
+
 }
