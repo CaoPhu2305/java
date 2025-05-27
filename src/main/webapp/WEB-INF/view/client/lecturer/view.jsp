@@ -25,32 +25,48 @@
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered align-middle text-center mb-0">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">Mã Số SV</th>
-                                    <th scope="col">Tên Sinh Viên</th>
-                                    <th scope="col">Mã Lớp</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <!-- Dữ liệu động từ biến works -->
-                                <c:forEach var="student" items="${students}">
+                        <form action="/lecturer/view/${idEV}/${idCV}" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            <table class="table table-hover table-bordered align-middle text-center mb-0">
+                                <thead class="table-dark">
                                     <tr>
-                                        <td>${student.studentID}</td>
-                                        <td>${student.getUserAccount().getName()}</td>
-                                        <td>${student.classID}</td>
+                                        <th scope="col">Mã Số SV</th>
+                                        <th scope="col">Tên Sinh Viên</th>
+                                        <th scope="col">Mã Lớp</th>
+                                        <th scope="col">Thêm</th>
                                     </tr>
-                                </c:forEach>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="student" items="${students}">
+                                        <tr>
+                                            <td>${student.studentID}</td>
+                                            <td>${student.userAccount.name}</td>
+                                            <td>${student.classID}</td>
+                                            <td>
+                                                <input type="checkbox" class="form-check-input" name="studentIds" value="${student.studentID}" />
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
-                                <!-- <c:if test="${empty works}">
-                                    <tr>
-                                        <td colspan="4" class="text-center text-muted">Không có cộng tác viên nào đang làm công việc này.</td>
-</tr>
-                                </c:if> -->
-                            </tbody>
-                        </table>
+                                    <c:if test="${empty students}">
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted">
+                                                Không có cộng tác viên nào đang làm công việc này.
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-end py-2 px-2">
+                                <button type="submit" class="btn btn-danger" >
+                                    <c:if test="${workCompleted}">
+                                        disabled
+                                    </c:if>
+                                    Xác Nhận Xóa
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

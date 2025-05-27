@@ -29,7 +29,6 @@ public class Work {
         
     }
 
-
     @OneToMany(mappedBy = "work")
     private List<EventWorkStudent> eventWorkStudents;
 

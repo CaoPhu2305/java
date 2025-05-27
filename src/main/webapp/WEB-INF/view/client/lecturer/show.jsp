@@ -47,12 +47,33 @@
                                             <td>${event.name}</td>
                                             <td>${event.startDay}</td>
                                             <td>${event.location}</td>
-                                            <td><span class="badge bg-success">Đã duyệt</span></td>
                                             <td>
-                                                <a href="/lecturer/work/${event.eventID}" class="btn btn-sm btn-info me-1">
-                                                    <i class="fas fa-eye"></i> Xem
-                                                </a>
-                                            </td>
+                                            <c:choose>
+                                                <c:when test="${event.isApproved == true}">
+                                                    <span class="badge bg-success">Đã duyệt</span>
+                                                </c:when>
+                                                <c:when test="${event.isApproved == false}">
+                                                    <span class="badge bg-danger">Đã bị từ chối</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="badge bg-warning text-dark">Đang chờ duyệt</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${event.isApproved == true}">
+                                                    <a href="/lecturer/work/${event.eventID}" class="btn btn-sm btn-info me-1">
+                                                        <i class="fas fa-eye"></i> Xem
+                                                    </a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <button class="btn btn-sm btn-lg btn-secondary me-1" disabled>
+                                                        <i class="fas fa-eye-slash"></i> Xem
+                                                    </button>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

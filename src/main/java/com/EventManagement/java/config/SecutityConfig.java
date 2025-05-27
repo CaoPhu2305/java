@@ -53,7 +53,7 @@ public class SecutityConfig {
                 .dispatcherTypeMatchers(jakarta.servlet.DispatcherType.FORWARD,jakarta.servlet.DispatcherType.INCLUDE).permitAll()
                 .requestMatchers("/login", "/client/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/lecturer/**").hasRole("2")
-                .requestMatchers("/student/**").hasRole("3")
+                .requestMatchers("/student/**").hasRole("1")
                 .anyRequest().authenticated()
             )
             .formLogin(formLogin -> formLogin

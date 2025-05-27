@@ -23,7 +23,7 @@
                     <div>
                         <h5 class="mb-0">📋 Danh sách Công Việc</h5>
                     </div>
-                    <a href="/lecturer/create" class="btn btn-light">
+                    <a href="/lecturer/create/${id}" class="btn btn-light">
                         <i class="fas fa-plus"></i> Thêm Công Việc
                     </a>
                 </div>
@@ -39,25 +39,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="work" items="${works}">
-                                    <tr>
+                                <c:forEach var="work" items="${works}" varStatus="loop">
+                                    <tr class="${work.isComplate ? 'bg-success text-white fw-bold border border-1 border-white' : ''}">
                                         <td>${work.nameWork}</td>
                                         <td>${work.price}</td>
-                                        <td>${quantity}</td>
-                                        <td style="width: 180px;">
-                                            <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info me-1 mb-1">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="/lecturer/add/${id}/${work.workID}" class="btn btn-sm btn-success me-1 mb-1">
-                                                <i class="fas fa-user-plus"></i>
-                                            </a>
-                                            <a href="/lecturer/complete/${work.workID}" class="btn btn-sm btn-secondary mb-1"
-                                            onclick="return confirm('Bạn có chắc muốn đánh dấu công việc này là hoàn thành không?');">
-                                                <i class="fas fa-check"></i>
-                                            </a>
+                                        <td>${quantity[loop.index]}</td>
+                                        <td>
+                                            <div class="d-flex justify-content-center flex-wrap gap-1">
+                                                <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="/lecturer/add/${id}/${work.workID}" class="btn btn-sm btn-success">
+                                                    <i class="fas fa-user-plus"></i>
+                                                </a>
+                                                <form method="post" action="/lecturer/work/${id}/${work.workID}" class="d-inline">
+                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                    <button class="btn btn-sm btn-secondary">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 </c:forEach>
+
+                                 <c:if test="${empty works}">
+                                    <tr>
+                                        <td colspan="4" class="text-center text-muted">
+                                            hiện tại chưa có công việc nào
+                                        </td>
+                                    </tr>
+                                </c:if>
                             </tbody>
                         </table>
                     </div>
