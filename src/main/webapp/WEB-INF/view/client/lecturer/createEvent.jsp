@@ -26,6 +26,7 @@
                 action="/lecturer/createEvent"
                 class="p-4 shadow rounded bg-white border border-dark"
                 enctype="multipart/form-data">
+             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
             <!-- Tên sự kiện -->
             <div class="mb-3">

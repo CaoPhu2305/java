@@ -1,5 +1,6 @@
 package com.EventManagement.java.service.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,8 +24,21 @@ public class EventService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public List<Event> getAllEvents() {
-        return eventRepository.findAll();
+    public List<Event> getALLEventsIsApproved(List<Event> events){
+         List<Event> events2 = new ArrayList<>();
+
+        for (Event event : events) {
+            if(event.getIsApproved())
+                events2.add(event);
+        }
+
+        return events2;
+    }
+
+    public List<Event> getAllEventsStudent() {
+        List<Event> events = eventRepository.findAll();
+
+        return getALLEventsIsApproved(events);
     }
 
     public Event getEventByID(int eventID) {
@@ -32,11 +46,15 @@ public class EventService {
     }
 
     public List<Event> getAllEventTrainingPoints(int point) {
-        return eventRepository.findByTrainingPointsGreaterThan(point);
+         List<Event> events = eventRepository.findByTrainingPointsGreaterThan(point);
+
+         return getALLEventsIsApproved(events);
+
     }
 
     public List<Event> getALLEventSocialWordPoints(int point) {
-        return eventRepository.findBySocialWordPointGreaterThan(point);
+         List<Event> events = eventRepository.findBySocialWordPointGreaterThan(point);
+        return getALLEventsIsApproved(events);
     }
 
     public void handleSaveCreateEvent(Event event, Lecturer lecturer) {
@@ -52,5 +70,5 @@ public class EventService {
     }
 
 
-
+    
 }

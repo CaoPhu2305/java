@@ -54,6 +54,7 @@ public class RegistrationService {
                 newRegistration.setTradingID(null);
                 newRegistration.setRegistrationID(newRegisID);
                 registrationRepository.save(newRegistration);
+                
                 return "Đăng Ký Thành Công";
             }
         }
@@ -71,6 +72,41 @@ public class RegistrationService {
 
        return events;
 
+    }
+
+        public String addRegistration(int eventID, int userAccount, Boolean isCTV){
+
+        Student student = studentService.getStudentByID(userAccount);
+
+        Event event = eventService.getEventByID(eventID);
+
+        if(student != null && event != null ){
+
+            RegistrationID newRegisID = new RegistrationID(student.getStudentID(), eventID);
+
+            if(registrationRepository.existsById(newRegisID)){
+
+                return "bạn không được phép đăng 1 sự kiện 2 lần ";
+
+            }else{
+
+                Registration newRegistration = new Registration();
+                newRegistration.setIsCTV(false);
+                newRegistration.setIsCheckedIn(false);
+                newRegistration.setEvent(event);
+                newRegistration.setStudent(student);
+                newRegistration.setTradingID(null);
+
+                if(isCTV)
+                    newRegistration.setIsCTV(isCTV);
+
+                newRegistration.setRegistrationID(newRegisID);
+                registrationRepository.save(newRegistration);
+                
+                return "Đăng Ký Thành Công";
+            }
+        }
+        return "Lỗi Đăng Ký Thất Bại";
     }
 
 }

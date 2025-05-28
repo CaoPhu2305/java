@@ -103,9 +103,20 @@
                             <!-- Nút đăng ký -->
                              <form method="post" action="/student/event/cart/${event.eventID}">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                <button class="btn btn-primary mt-3 w-100">
-                                    <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
-                                </button>
+
+                                <div class="mb-2" style="width: 32%;">
+                                     <label class="form-label" style="font-weight: bold;" >Vai Trò Tham gia</label>
+                                    <select name="isCTV" class="form-select">Lựa chọn
+                                        <option value="false">Khán Giả</option>
+                                        <option value="true" >Cộng Tác Viên</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <button class="btn btn-primary mt-3 w-100">
+                                        <i class="bi bi-box-arrow-in-right me-1"></i> Đăng ký ngay
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

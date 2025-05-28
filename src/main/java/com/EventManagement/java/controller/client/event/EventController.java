@@ -27,7 +27,7 @@ public class EventController {
     @GetMapping("/")
     public String getHomePage(Model model) {
 
-        List<Event> getAllEvents = eventService.getAllEvents();
+        List<Event> getAllEvents = eventService.getAllEventsStudent();
         List<Event> getAllEventTrainingPoints = eventService.getAllEventTrainingPoints(0);
         List<Event> getALLEventSocialWordPoints = eventService.getALLEventSocialWordPoints(0);
         model.addAttribute("allEvents", getAllEvents);
