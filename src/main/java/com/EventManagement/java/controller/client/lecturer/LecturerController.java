@@ -186,5 +186,25 @@ public class LecturerController {
         
         return "redirect:/lecturer/work/" + idEV;
     }
+
+    @GetMapping("/lecturer/eventUpdate")
+    public String getMethodName(@RequestParam("eventID") int eventID, Model model) {
+
+        Event event = eventService.getEventByID(eventID);
+
+        model.addAttribute("newEvent", event);
+
+        return "client/lecturer/update";
+    }
+
+    @PostMapping("/lecturer/eventUpdate")
+    public String postMethodName( @ModelAttribute("newWork") Event event, HttpSession session) {
+
+        eventService.handleSaveCreateEvent(event);
+        
+        return "redirect:/lecturer";
+    }
+    
+    
     
 }

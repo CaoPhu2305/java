@@ -58,17 +58,19 @@ public class EventService {
     }
 
     public void handleSaveCreateEvent(Event event, Lecturer lecturer) {
-        String chekINID = passwordEncoder.encode(event.getImageEvent());
-        event.setCheckinID(chekINID);
         event.setLecturer(lecturer);
         event.setIsApproved(null);
         eventRepository.save(event);
     }
 
+    
+
     public List<Event> getAllEventsByLecturer(int lecturerID) {
         return eventRepository.findByLecturer_LecturerID(lecturerID);
     }
 
-
+    public void handleSaveCreateEvent(Event event) {
+        eventRepository.save(event);
+    }
     
 }

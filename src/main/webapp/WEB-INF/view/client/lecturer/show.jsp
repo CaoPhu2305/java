@@ -14,6 +14,8 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script> -->
     </head>
     <body>
         <jsp:include page="../layoutLecturer/header.jsp"/>
@@ -71,6 +73,12 @@
                                                     <button class="btn btn-sm btn-lg btn-secondary me-1" disabled>
                                                         <i class="fas fa-eye-slash"></i> Xem
                                                     </button>
+                                                    
+                                                    
+                                                    <a href="/lecturer/eventUpdate?eventID=${event.eventID}" class="btn btn-sm btn-info me-1">
+                                                        <i class="fas fa-edit"></i>Sửa
+                                                    </a>
+                                                    
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>

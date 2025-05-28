@@ -32,13 +32,11 @@
     <jsp:include page="../layout/header.jsp"/>
 
     <!-- Main Content -->
-    <div class="container py-5" style="margin-top: 100px;">
+    <div class="container py-5" style="margin-top: 60px;" >
         <div class="shadow rounded-4 bg-white p-5">
-
-            <!-- Student Info Card -->
         <div class="container py-4">
         <!-- Student Info Card -->
-        <div class="card mb-4 border-0 shadow-sm">
+        <div class="card mb-4 border-0 shadow-sm"  style="margin-top: -32px;">
             <div class="card-header bg-primary text-white rounded-top">
                 <i class="fas fa-user-graduate me-2"></i>Thông tin sinh viên
             </div>
@@ -53,15 +51,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                        <div class="col-md-6">
                         <div class="d-flex align-items-center">
-                            <i class="fas fa-users fs-5 text-primary me-3"></i>
+                            <i class="fas fa-star fs-5 text-primary me-3"></i>
                             <div>
-                                <small class="text-muted">Lớp</small>
-                                <p class="mb-0 fw-medium">${student.classID}</p>
+                                <small class="text-muted">Điểm CTXH</small>
+                                <p class="mb-0 fw-medium">${student.cTXH}</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-phone fs-5 text-primary me-3"></i>
@@ -71,21 +70,23 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-star fs-5 text-primary me-3"></i>
                             <div>
-                                <small class="text-muted">Điểm CTXH</small>
-                                <p class="mb-0 fw-medium">${student.cTXH}</p>
+                                <small class="text-muted">Điểm Rèn Luyện</small>
+                                <p class="mb-0 fw-medium">${student.renLuyen}</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="d-flex align-items-center">
-                            <i class="fas fa-heartbeat fs-5 text-primary me-3"></i>
+                            <i class="fas fa-users fs-5 text-primary me-3"></i>
                             <div>
-                                <small class="text-muted">Điểm Rèn Luyện</small>
-                                <p class="mb-0 fw-medium">${student.renLuyen}</p>
+                                <small class="text-muted">Lớp</small>
+                                <p class="mb-0 fw-medium">${student.classID}</p>
                             </div>
                         </div>
                     </div>
@@ -94,49 +95,53 @@
         </div>
 
             <!-- Event List Table -->
-            <h3 class="text-primary mb-4">
-                <i class="fas fa-calendar-alt me-2"></i>Danh sách sự kiện đã đăng ký
-            </h3>
-            <div class="table-responsive">
-                <table class="table table-hover align-middle table-bordered shadow-sm">
-                    <thead class="table-primary text-center">
-                        <tr>
-                            <th>Hình ảnh</th>
-                            <th>Tên sự kiện</th>
-                            <th>Địa điểm</th>
-                            <th>Bắt đầu</th>
-                            <th>Kết thúc</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="event" items="${events}">
-                            <tr class="text-center align-middle">
-                                <td>
-                                    <img src="/client/img/${event.imageEvent}" class="img-thumbnail rounded-circle" style="width: 80px; height: 80px;" alt="${event.eventID}">
-                                </td>
-                                <td class="fw-semibold text-primary">${event.name}</td>
-                                <td>${event.location}</td>
-                                <td>${event.startTime}</td>
-                                <td>${event.endTime}</td>
-                                <td>
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <!-- Nút Xem -->
-                                        <c:if test="">
-                                            <a href="#" class="btn btn-sm btn-info text-white" title="Xem">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                        </c:if>
-                                        <!-- Nút Xóa -->
-                                        <a href="#" class="btn btn-sm btn-danger" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa sự kiện này không?');">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </div>
-                                </td>
+             <div class="row mx-auto">
+                <div class="clo-md-6 col-12">
+                <h3 class="text-primary mb-4 mt-4" style="margin-top: 30px;">
+                    <i class="fas fa-calendar-alt me-2"></i>Danh sách sự kiện đã đăng ký
+                </h3>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle table-bordered shadow-sm">
+                        <thead class="table-primary text-center">
+                            <tr>
+                                <th>Hình ảnh</th>
+                                <th>Tên sự kiện</th>
+                                <th>Địa điểm</th>
+                                <th>Bắt đầu</th>
+                                <th>Kết thúc</th>
+                                <th>Hành động</th>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="event" items="${events}">
+                                <tr class="text-center align-middle">
+                                    <td>
+                                        <img src="/client/img/${event.imageEvent}" class="img-thumbnail rounded-circle" style="width: 80px; height: 80px;" alt="${event.eventID}">
+                                    </td>
+                                    <td class="fw-semibold text-primary">${event.name}</td>
+                                    <td>${event.location}</td>
+                                    <td>${event.startTime}</td>
+                                    <td>${event.endTime}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <!-- Nút Xem -->
+                                            <c:if test="">
+                                                <a href="#" class="btn btn-sm btn-info text-white" title="Xem">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </c:if>
+                                            <!-- Nút Xóa -->
+                                            <a href="#" class="btn btn-sm btn-danger" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa sự kiện này không?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
         </div>
     </div>
