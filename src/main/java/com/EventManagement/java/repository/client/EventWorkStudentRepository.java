@@ -23,4 +23,8 @@ public interface EventWorkStudentRepository extends JpaRepository<EventWorkStude
 
     boolean existsByEventWorkStudentID_studentIDAndEventWorkStudentID_EventID(int studentID, int eventID);
 
+    List<EventWorkStudent> findByEventWorkStudentID_EventIDAndEventWorkStudentID_StudentID(int eventID, int studentID);
+
+    boolean existsByEventWorkStudentID_studentIDAndEventWorkStudentID_WorkIDAndEventWorkStudentID_EventID(int studentID, int workID, int eventID);
+
 }

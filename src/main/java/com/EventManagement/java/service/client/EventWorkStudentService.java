@@ -67,8 +67,26 @@ public class EventWorkStudentService {
         }
 
         return students1;
+    }
 
+        public List<Student> getALLSudentCTV(Integer eventID, Integer workID){
+        List<Registration> registrationRepositories = registrationRepository.findByRegistrationID_EventID(eventID);
+        
+        List<Student> students = new ArrayList<>();
+         List<Student> students1 = new ArrayList<>();
+        // nhớ bắt lỗi
 
+        for (Registration student : registrationRepositories) {
+            if(student.getIsCTV())
+                students.add(student.getStudent());
+        }
+
+        for (Student student : students) {
+            if(!eventWorkStudentRepository.existsByEventWorkStudentID_studentIDAndEventWorkStudentID_WorkIDAndEventWorkStudentID_EventID(student.getStudentID(), workID  ,eventID))
+                students1.add(student);
+        }
+
+        return students1;
     }
 
     public String handleAddCTVToWork(int eventID,int workID,int studentID) {

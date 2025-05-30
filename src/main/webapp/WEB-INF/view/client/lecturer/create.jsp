@@ -28,13 +28,24 @@
                         <div class="card-body">
                             <!-- Sử dụng form Spring nếu cần binding -->
                             <form:form method="post" action="/lecturer/create" modelAttribute="newWork">
+
+                                <!-- <c:set var="errorNameWork">
+                                    <form:errors path="nameWork" cssClass="invalid-feedback" />
+                                </c:set>
+
+                                 <c:set var="errorPrice">
+                                    <form:errors path="price" cssClass="invalid-feedback" />
+                                </c:set> -->
+
                                 <div class="mb-3">
                                     <label for="eventName" class="form-label">Tên Sự Kiện</label>
-                                    <form:input path="nameWork" type="text" class="form-control" placeholder="Nhập tên sự kiện" />
+                                    <form:input path="nameWork" type="text" cssClass="form-control" cssErrorClass="form-control is-invalid"  placeholder="Nhập tên sự kiện" />
+                                      <form:errors path="nameWork" cssClass="invalid-feedback" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Số Tiền</label>
-                                    <form:input path="price" type="number" class="form-control" placeholder="Nhập số tiền" />
+                                    <form:input path="price" type="number" cssClass="form-control" cssErrorClass="form-control is-invalid" placeholder="Nhập số tiền" required="lỗi hoành tráng" />
+                                    <form:errors path="price" cssClass="invalid-feedback" />
                                 </div>
                                 <div class="text-end">
                                     <input type="hidden" name="eventID" value="${eventID}" />

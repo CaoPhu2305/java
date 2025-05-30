@@ -2,6 +2,8 @@ package com.EventManagement.java.domain.client.model;
 
 import java.util.List;
 
+import com.EventManagement.java.service.validator.CreateWorkCheck;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+@CreateWorkCheck
 @Entity
 @Table(name = "work")
 public class Work {
@@ -18,6 +23,7 @@ public class Work {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int workID;
 
+    @NotNull(message = "giá tiền không dể trống")
     private double price;
 
     @Column(columnDefinition = "nvarchar(255)")

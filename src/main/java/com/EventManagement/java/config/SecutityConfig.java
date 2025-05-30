@@ -61,7 +61,11 @@ public class SecutityConfig {
                 .failureUrl("/login?error")
                 .successHandler(customSuccessHandler())
                 .permitAll()
-            );
+            )
+            .exceptionHandling(ex -> ex.accessDeniedPage("/403"))
+            ;
+
+            
 
         return http.build();
     }

@@ -51,7 +51,7 @@
                             <c:if test="${empty students}">
                                 <tr>
                                     <td colspan="4" class="text-center text-muted">
-                                        Không có cộng tác viên nào đang làm công việc này.
+                                       Hiện không có cộng tác viên!!
                                     </td>
                                 </tr>
                             </c:if>
@@ -59,9 +59,12 @@
                     </table>
 
                     <!-- Chỉ giữ lại nút xác nhận, căn phải -->
+
+                    <c:set var="disabledAdd" value="${empty students ? 'disabled' : ''}"/>
+
                     <div class="d-flex justify-content-end mt-3 px-3 pb-3">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-check"></i> Xác nhận
+                        <button type="submit" class="btn btn-primary ${disabledAdd} " >
+                             <i class="fas fa-check"></i> Xác nhận
                         </button>
                     </div>
                 </form>

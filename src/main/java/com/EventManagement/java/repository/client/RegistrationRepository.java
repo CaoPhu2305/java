@@ -22,4 +22,8 @@ public interface RegistrationRepository extends JpaRepository<Registration, Regi
 
     List<Registration> findByRegistrationID_StudentID(int studentID);
 
+    boolean removeByRegistrationID_StudentIDAndRegistrationID_EventID(int studentID, int eventID);
+
+    
+
 }

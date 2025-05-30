@@ -58,14 +58,13 @@
                                 </tbody>
                             </table>
 
-                            <div class="d-flex justify-content-end py-2 px-2">
-                                <button type="submit" class="btn btn-danger" >
-                                    <c:if test="${workCompleted}">
-                                        disabled
-                                    </c:if>
-                                    Xác Nhận Xóa
-                                </button>
-                            </div>
+                        <c:set var="disabledAdd" value="${empty students ? 'disabled' : ''}"/>
+
+                        <div class="d-flex justify-content-end mt-3 px-3 pb-3">
+                            <button type="submit" class="btn btn-danger ${disabledAdd} " >
+                                <i class="fas fa-check"></i> Xác nhận Xóa
+                            </button>
+                        </div>
                         </form>
                     </div>
                 </div>

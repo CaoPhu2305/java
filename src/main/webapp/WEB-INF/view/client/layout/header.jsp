@@ -24,7 +24,8 @@
                         </div>
 
                         <div class="d-flex m-3 me-0">
-                            <a href="#" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+
+                            <a href="/student/event/work" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4">
                                 <i class="bi bi-card-text text-primary"></i>
                             </a>
 
@@ -32,6 +33,14 @@
                             <a href="/student/event/cart/${sessionScope.id}" class="my-auto">
                                 <i class="fas fa-user fa-2x"></i>
                             </a>
+
+                            <form method="post" action="/logout">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                <button class="btn" >
+                                    Logout
+                                </button>
+                            </form>                            
+
                         </div>
                     </div>
                 </nav>

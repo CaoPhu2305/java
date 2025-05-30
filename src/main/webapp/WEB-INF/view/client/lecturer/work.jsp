@@ -46,12 +46,32 @@
                                         <td>${quantity[loop.index]}</td>
                                         <td>
                                             <div class="d-flex justify-content-center flex-wrap gap-1">
-                                                <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info">
+                                                <!-- <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                                 <a href="/lecturer/add/${id}/${work.workID}" class="btn btn-sm btn-success">
                                                     <i class="fas fa-user-plus"></i>
-                                                </a>
+                                                </a> -->
+                                                <c:choose>
+                                                    <c:when test="${!work.isComplate}" >
+                                                        <a href="/lecturer/view/${id}/${work.workID}" class="btn btn-sm btn-info">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a href="/lecturer/add/${id}/${work.workID}" class="btn btn-sm btn-success">
+                                                            <i class="fas fa-user-plus"></i>
+                                                        </a>
+                                                    </c:when>
+                                                    
+                                                    <c:otherwise>
+                                                        <span class="btn btn-sm btn-warning" title="Không thể xem công việc">
+                                                            <i class="fas fa-eye-slash"></i>
+                                                        </span>
+                                                        <span class="btn btn-sm btn-warning" title="Không thể thêm người vào công việc">
+                                                            <i class="fas fa-user-times"></i>
+                                                        </span>
+                                                    </c:otherwise>
+                                                </c:choose>
+
                                                 <form method="post" action="/lecturer/work/${id}/${work.workID}" class="d-inline">
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                     <button class="btn btn-sm btn-secondary">
@@ -75,7 +95,6 @@
                     </div>
                 </div>
             </div>
-        
         </main>
 
         <jsp:include page="../layout/footer.jsp"/>

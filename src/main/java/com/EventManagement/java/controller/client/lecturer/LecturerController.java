@@ -2,9 +2,11 @@ package com.EventManagement.java.controller.client.lecturer;
 
 import java.util.List;
 
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,7 @@ import com.EventManagement.java.service.client.WorkService;
 import com.EventManagement.java.service.uploadfile.UploadService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -120,7 +123,7 @@ public class LecturerController {
     public String getADDCTVPage(Model model, @PathVariable("idSK") Integer idSK,
                         @PathVariable("idCV") Integer idCV) {
 
-        List<Student> students = eventWorkStudentService.getALLSudentCTV(idSK);
+        List<Student> students = eventWorkStudentService.getALLSudentCTV(idSK, idCV);
 
         model.addAttribute("students", students);
         model.addAttribute("idSK", idSK);
@@ -140,7 +143,15 @@ public class LecturerController {
     }
 
     @PostMapping("/lecturer/create") // sửa ở đây
-    public String postMethodName(Model model, @ModelAttribute("newWork") Work work, RedirectAttributes redirectAttributes, @RequestParam("eventID") Integer eventID) {
+    public String postMethodName(Model model, @ModelAttribute("newWork") @Valid Work work, 
+                        BindingResult bindResult, RedirectAttributes redirectAttributes,
+                        @RequestParam("eventID") Integer eventID) {
+
+
+        if(bindResult.hasErrors()){
+            model.addAttribute("eventID", eventID);
+            return "client/lecturer/create";
+        }
 
         work.setIsComplate(false);
         workService.handleSaveWork(work);
@@ -153,11 +164,16 @@ public class LecturerController {
     @PostMapping("/lecturer/add/{idSK}/{idCV}")
     public String postCreateCTVToWork(Model model, @PathVariable("idSK") Integer idSK,
                 @PathVariable("idCV") Integer idCV,
-                 @RequestParam("studentIds") List<Integer> studentIDS,
+                 @RequestParam( required = false ,name = "studentIds") List<Integer> studentIDS,
                  RedirectAttributes redirectAttributes ){
         
-        // String messString = eventWorkStudentService.handleAddCTVToWork(idSK, idCV, idSV);
         
+        // String messString = eventWorkStudentService.handleAddCTVToWork(idSK, idCV, idSV);
+
+        if(studentIDS == null)
+            return "redirect:/lecturer/work/{idSK}";
+        
+
         List<String> resultMessages = eventWorkStudentService.handleAddListCTVToWork(idSK, idCV, studentIDS);
 
         return "redirect:/lecturer/work/{idSK}";
@@ -166,11 +182,14 @@ public class LecturerController {
     @PostMapping("/lecturer/view/{idEV}/{idCV}")
     public String postRemoveCTVToWork(Model model, @PathVariable("idEV") Integer idEV,
                 @PathVariable("idCV") Integer idCV,
-                 @RequestParam("studentIds") List<Integer> studentIDS,
+                 @RequestParam(required = false, name = "studentIDS") List<Integer> studentIDS,
                  RedirectAttributes redirectAttributes ){
         
         // String messString = eventWorkStudentService.handleAddCTVToWork(idSK, idCV, idSV);
         
+        if(studentIDS == null)
+            return "redirect:/lecturer/work/{idEV}";
+
         List<String> resultMessages = eventWorkStudentService.handleRemoveListCTVFromWork(idEV,idCV , studentIDS);
 
         return "redirect:/lecturer/work/{idEV}";

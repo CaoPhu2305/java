@@ -15,4 +15,13 @@
             <i class="bi bi-person-circle fs-4"></i>
         </a>
     </div>
+
+    <form method="post" action="/logout" style=" margin-right: 24px; ">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <button class="btn" style="color: white;" >
+            Logout
+        </button>
+    </form>
+
 </nav>
+ 

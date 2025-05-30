@@ -119,6 +119,25 @@
                                 </div>
                                 </div>
                             </div>
+                            <nav aria-label="Page navigation example" class="mt-3" >
+                                <ul class="pagination" style="display: flex; justify-content: center;" >
+                                    <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
@@ -153,6 +172,25 @@
                                 </div>
                                 </div>
                             </div>
+                            <nav aria-label="Page navigation example" class="mt-3" >
+                                <ul class="pagination" style="display: flex; justify-content: center;" >
+                                    <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row g-4">
@@ -173,7 +211,7 @@
                                                         <p class="mb-1"><i class="bi bi-geo-alt-fill text-danger me-2"></i> <strong>Địa điểm:</strong> ${event.location}</p>
                                                         <p class="mb-3">
                                                             <i class="bi bi-calendar-event text-success me-2"></i>
-                                                            <strong>Ngày tổ chức:</strong>
+                                                            <stron g>Ngày tổ chức:</strong>
                                                             <fmt:formatDate value="${event.startDay}" pattern="dd/MM/yyyy" />
                                                         </p>
                                                     </div>
@@ -186,13 +224,40 @@
                                     </c:forEach>
                                 </div>
                                 </div>
+                                <nav aria-label="Page navigation example" class="mt-3" >
+                                    <ul class="pagination" style="display: flex; justify-content: center;" >
+                                        <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>      
             </div>
         </div>
-        <!-- Fruits Shop End-->
+
+        <!-- <c:if test="${not empty message}">
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+                    var myModal = new bootstrap.Modal(document.getElementById('thongBaoModal'));
+                    myModal.show();
+                });
+            </script>
+        </c:if> -->
 
         <!-- Footer Start -->
         <jsp:include page="../layout/footer.jsp" />
